@@ -11,3 +11,5 @@ Contributors are welcome :)
  3. Call this URL on your browser : localhost:5000/getProfileData?id=[your-profile-id]
 
 For Example: https://www.strava.com/activities/XXXXXXX
+
+Important: This is an unofficial script to scrap data from strava. It may change/block by strava anytime.
