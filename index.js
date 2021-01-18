@@ -18,7 +18,14 @@ app.use((req, res, next) => {
 });
 
 async function getAutoData(profile_id) {
-  const browser = await puppeteer.launch();
+  // const browser = await puppeteer.launch();
+
+  // For Heroku Deployment
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox','--disable-setuid-sandbox']
+  })
+
   const page = await browser.newPage();
   await page.goto("https://www.strava.com/activities/" + profile_id);
 
