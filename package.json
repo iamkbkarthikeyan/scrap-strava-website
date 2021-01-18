@@ -1,0 +1,20 @@
+{
+  "name": "scrap-strava-profile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Karthikeyan <kbkarthikeyan@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "puppeteer": "^3.0.4"
+  },
+  "engines": {
+    "node": "10.16.3"
+  }
+}
