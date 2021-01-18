@@ -45,12 +45,12 @@ async function getAutoData(profile_id) {
     var elevation = activityData[5].innerText;
     var calories = activityData[6].innerText;
     var profile_picture = imgTag[1].src;
-    var type = spanTag[7].innerText;
+    var type = spanTag[8].innerText;
     var activityDate = timeTag[0].innerText;
     var activityName = headingOneTag[0].innerText;
     var activityTitle = titleTag[0].innerText;
     var atheleteName = headingThreeTag[0].innerText;
-    var location = spanTag[1].innerText;
+    var location = spanTag[2].innerText;
     var like = liTag[8].innerText;
     var comment = liTag[9].innerText;
     var achievement = liTag[10].innerText;
