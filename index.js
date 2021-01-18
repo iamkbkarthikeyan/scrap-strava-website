@@ -31,29 +31,57 @@ async function getAutoData(profile_id) {
 
   result = await page.evaluate(() => {
     var dataSet = [];
-    var selecor = document.getElementsByClassName("Stat--stat-value--3bMEZ");
+    var activityData = document.getElementsByClassName("Stat--stat-value--3bMEZ");
+    var imgTag = document.getElementsByTagName("img");
+    var timeTag = document.getElementsByTagName("time");
+    var headingOneTag = document.getElementsByTagName("h1");
+    var titleTag = document.getElementsByTagName("title");
+    var headingThreeTag = document.getElementsByTagName("h3");
+    var spanTag = document.getElementsByTagName("span");
+    var liTag = document.getElementsByTagName("li");
 
-    var distance = selecor[3].innerText;
-    var time = selecor[4].innerText;
-    var elevation = selecor[5].innerText;
-    var calories = selecor[6].innerText;
+    var distance = activityData[3].innerText;
+    var time = activityData[4].innerText;
+    var elevation = activityData[5].innerText;
+    var calories = activityData[6].innerText;
+    var profile_picture = imgTag[1].src;
+    var type = spanTag[7].innerText;
+    var activityDate = timeTag[0].innerText;
+    var activityName = headingOneTag[0].innerText;
+    var activityTitle = titleTag[0].innerText;
+    var atheleteName = headingThreeTag[0].innerText;
+    var location = spanTag[1].innerText;
+    var like = liTag[8].innerText;
+    var comment = liTag[9].innerText;
+    var achievement = liTag[10].innerText;
+
 
     var jsonData = {
+      title: activityTitle,
+      activity_name: activityName,
+      athelete_name: atheleteName,
+      location: location,
+      activity_date: activityDate,
+      activity_type: type,
+      profile_picture: profile_picture,
       distance: distance,
       time: time,
       elevation: elevation,
       calories: calories,
+      like: like,
+      comment: comment,
+      achievement: achievement,
     };
     dataSet.push(jsonData);
 
-    console.log(dataSet);
+    // console.log(dataSet);
     return dataSet;
   });
   browser.close();
   return await result;
 }
 
-app.get("/getProfileData", function (req, res) {
+app.get("/getActivityData", function (req, res) {
   var id = req.query.id;
   getAutoData(id).then(function (leaderboard_data) {
     res.json({ status: "true", data: leaderboard_data });
