@@ -83,9 +83,14 @@ async function getAutoData(profile_id) {
 
 app.get("/getActivityData", function (req, res) {
   var id = req.query.id;
-  getAutoData(id).then(function (leaderboard_data) {
-    res.json({ status: "true", data: leaderboard_data });
-  }, errHandler);
+  if(id){
+    getAutoData(id).then(function (leaderboard_data) {
+      res.json({ status: "true", data: leaderboard_data });
+    }, errHandler);
+  }else{
+    return res.send({ status: "false", message: "Invalid Activity ID" });
+  }
+  
 });
 
 var errHandler = function (err) {
