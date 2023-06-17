@@ -19,19 +19,20 @@ app.use((req, res, next) => {
 });
 
 async function getAutoData() {
-  const browser = await puppeteer.launch(
-    {   args: ['--disable-features=site-per-process']}
-  );
+  
+  // const browser = await puppeteer.launch(
+  //   {   args: ['--disable-features=site-per-process']}
+  // );
 
   // For Heroku Deployment
-  // const browser = await puppeteer.launch({
-  //   headless: true,
-  //   args: ['--no-sandbox','--disable-setuid-sandbox']
-  // })
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox','--disable-setuid-sandbox']
+  })
 
 
   totalData = 965;
-  
+
   jsonDatabase = require('./data/database.json');
   console.log("Scraping City Number : "+jsonDatabase.length +" of "+ totalData);
 
