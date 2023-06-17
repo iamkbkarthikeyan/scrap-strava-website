@@ -214,6 +214,15 @@ getAutoData();
 
 
 // # Get * 404 => 200 : API RESPONSE : UNAUTHORIZED ACCESS
+
+app.all("/getDB", (req, res) => {
+  jsonDatabase = require('./data/database.json');
+  return res
+    .status(200)
+    .send(jsonDatabase);
+});
+
+
 app.all("/*", (req, res) => {
   return res
     .status(200)
