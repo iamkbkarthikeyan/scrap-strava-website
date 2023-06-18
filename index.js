@@ -121,6 +121,9 @@ for (let index = jsonDatabase.length; index <= totalData; index++) {
 
     var strData = data;
     var activityData = data;
+
+   
+
     console.log("Scripts Targetted");
 
     console.log(activityData);
@@ -172,6 +175,8 @@ for (let index = jsonDatabase.length; index <= totalData; index++) {
         fccpos1 = firstContentCut.search("<p><b>Name :")
         fccpos2 = firstContentCut.search("</b>'+")
         firstContentCut = firstContentCut.slice(fccpos1+12,fccpos2);
+
+        content_pos = strData.search("var contentString_"+targetPoint);
          
 
         dataSet.push({
