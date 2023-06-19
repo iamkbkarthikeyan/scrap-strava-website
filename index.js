@@ -34,7 +34,7 @@ async function getAutoData() {
   totalData = 965;
 
   jsonDatabase = require('./data/database.json');
-  console.log("Scraping City Number : "+jsonDatabase.length +" of "+ totalData);
+  console.log("Getting Data Number : "+jsonDatabase.length +" of "+ totalData);
 
 
 for (let index = jsonDatabase.length; index <= totalData; index++) {
